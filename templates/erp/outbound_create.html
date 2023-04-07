@@ -1,0 +1,31 @@
+<!-- outbounds.html -->
+
+{% extends 'base.html' %}
+
+{% block content %}
+  <h1>출고 목록</h1>
+  <table>
+    <thead>
+      <tr>
+        <th>상품</th>
+        <th>수량</th>
+        <th>출고 날짜</th>
+        <th>금액</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for outbound in outbounds %}
+        <tr>
+          <td>{{ outbound.product }}</td>
+          <td>{{ outbound.quantity }}</td>
+          <td>{{ outbound.outbound_date }}</td>
+          <td>{{ outbound.amount }}</td>
+        </tr>
+      {% empty %}
+        <tr>
+          <td colspan="4">출고 목록이 없습니다.</td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+{% endblock %}
